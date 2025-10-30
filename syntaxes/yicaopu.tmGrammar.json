@@ -1,0 +1,69 @@
+{
+	"scopeName": "source.yicaopu",
+	"name": "YiCaoPu",
+	"patterns": [
+		{
+			"include": "#instruments"
+		},
+		{
+			"include": "#relations"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#pitches"
+		},
+		{
+			"include": "#velocity"
+		},
+		{
+			"include": "#duration"
+		}
+
+	],
+	"repository": {
+		"pitches": {
+			"patterns": [{
+				"name": "markup.bold.yicaopu",
+				"match": "([1-7]|[A-G]|do|re|mi|fa|sol|la|si)([0-8]|-1)?('*)?(\\.*)?(#|b)?"
+			}]
+		},
+		"instruments": {
+			"patterns": [{
+				"name": "entity.name.type.yicaopu",
+				"match": "\\b\\w*:"
+			}]
+		},
+		"relations": {
+			"patterns": [{
+				"name": "keyword.control.yicaopu",
+				"match": "&|~|\\[|\\]"
+			}]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.block.yicaopu",
+					"match": "\\(.*\\)"
+				}
+			]
+		},
+		"velocity": {
+			"patterns": [
+				{
+					"name": "entity.name.function.yicaopu",
+					"match": "[!_]+"
+				}
+			]
+		},
+		"duration": {
+			"patterns": [
+				{
+					"name": "string.quoted.yicaopu",
+					"match": "[/\\+]+"
+				}
+			]
+		}
+	}
+}

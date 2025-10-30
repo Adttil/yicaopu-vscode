@@ -1,0 +1,36 @@
+{
+  "name": "yicaopu",
+  "displayName": "YiCaoPu",
+  "description": "Support for YiCaoPu, a simple plain-text music score format.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "publisher": "Adttil",
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "yicaopu",
+      "aliases": ["YiCaoPu", "yicaopu"],
+      "extensions": [".ycp"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [
+      {
+        "language": "yicaopu",
+        "scopeName": "source.yicaopu",
+        "path": "./syntaxes/yicaopu.tmGrammar.json"
+      },
+      {
+        "scopeName": "markdown.yicaopu.codeblock",
+        "path": "./syntaxes/markdown-yicaopu.tmGrammar.json",
+        "injectTo": ["text.html.markdown"],
+        "embeddedLanguages": {
+          "meta.embedded.block.yicaopu": "yicaopu"
+        }
+      }
+    ]
+  }
+}
