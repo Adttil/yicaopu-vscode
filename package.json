@@ -11,6 +11,7 @@
 		"type": "git",
 		"url": "https://github.com/Adttil/yicaopu-vscode.git"
 	},
+  "icon": "./icon.png",
   "categories": [
     "Programming Languages"
   ],
@@ -19,7 +20,8 @@
       "id": "yicaopu",
       "aliases": ["YiCaoPu", "yicaopu"],
       "extensions": [".ycp"],
-      "configuration": "./language-configuration.json"
+      "configuration": "./language-configuration.json",
+      "icon": { "dark": "./file-icon.png", "light": "./file-icon.png"}
     }],
     "grammars": [
       {
