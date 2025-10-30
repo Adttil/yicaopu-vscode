@@ -7,6 +7,10 @@
     "vscode": "^1.105.0"
   },
   "publisher": "Adttil",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/Adttil/yicaopu-vscode.git"
+	},
   "categories": [
     "Programming Languages"
   ],
