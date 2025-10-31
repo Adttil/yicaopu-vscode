@@ -2,27 +2,38 @@
   "name": "yicaopu",
   "displayName": "YiCaoPu",
   "description": "Support for YiCaoPu, a simple plain-text music score format.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.105.0"
   },
   "publisher": "Adttil",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/Adttil/yicaopu-vscode.git"
-	},
+    "type": "git",
+    "url": "https://github.com/Adttil/yicaopu-vscode.git"
+  },
   "icon": "./icon.png",
   "categories": [
     "Programming Languages"
   ],
+  "main": "./out/extension.js",
   "contributes": {
-    "languages": [{
-      "id": "yicaopu",
-      "aliases": ["YiCaoPu", "yicaopu"],
-      "extensions": [".ycp"],
-      "configuration": "./language-configuration.json",
-      "icon": { "dark": "./file-icon.png", "light": "./file-icon.png"}
-    }],
+    "languages": [
+      {
+        "id": "yicaopu",
+        "aliases": [
+          "YiCaoPu",
+          "yicaopu"
+        ],
+        "extensions": [
+          ".ycp"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "dark": "./file-icon.png",
+          "light": "./file-icon.png"
+        }
+      }
+    ],
     "grammars": [
       {
         "language": "yicaopu",
@@ -32,11 +43,61 @@
       {
         "scopeName": "markdown.yicaopu.codeblock",
         "path": "./syntaxes/markdown-yicaopu.tmGrammar.json",
-        "injectTo": ["text.html.markdown"],
+        "injectTo": [
+          "text.html.markdown"
+        ],
         "embeddedLanguages": {
           "meta.embedded.block.yicaopu": "yicaopu"
         }
       }
-    ]
+    ],
+    "commands": [
+      {
+        "command": "yicaopu.toMidi",
+        "title": "YiCaoPu: Convert to Midi",
+        "shortTitle": "ycp2mid"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "yicaopu.toMidi",
+          "when": "editorLangId == yicaopu"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceExtname == .ycp",
+          "command": "yicaopu.toMidi",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "yicaopu.toMidi",
+          "when": "resourceLangId == yicaopu",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.104.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "eslint": "^9.36.0",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
   }
 }
