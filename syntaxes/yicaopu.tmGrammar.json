@@ -61,7 +61,7 @@
 			"patterns": [
 				{
 					"name": "string.quoted.yicaopu",
-					"match": "[/\\+]+"
+					"match": "[/\\+0]+"
 				}
 			]
 		}
