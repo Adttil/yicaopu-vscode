@@ -28,9 +28,10 @@
           ".ycp"
         ],
         "configuration": "./language-configuration.json",
-        "icon": {
-          "dark": "./file-icon.png",
-          "light": "./file-icon.png"
+        "icon": 
+        {
+          "dark": "./file-icon.svg",
+          "light": "./file-icon.svg"
         }
       }
     ],
@@ -54,8 +55,22 @@
     "commands": [
       {
         "command": "yicaopu.toMidi",
-        "title": "YiCaoPu: Convert to Midi",
-        "shortTitle": "ycp2mid"
+        "title": "YiCaoPu: Convert to Midi"
+      },
+      {
+        "command": "yicaopu.play",
+        "title": "YiCaoPu: Play"
+      },
+      {
+        "command": "yicaopu.playSelection",
+        "title": "YiCaoPu: Play Selection"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "yicaopu.playSelection",
+        "key": "F5",
+        "when": "editorLangId == yicaopu"
       }
     ],
     "menus": {
@@ -63,18 +78,31 @@
         {
           "command": "yicaopu.toMidi",
           "when": "editorLangId == yicaopu"
+        },
+        {
+          "command": "yicaopu.play",
+          "when": "editorLangId == yicaopu"
+        },
+        {
+          "command": "yicaopu.playSelection",
+          "when": "editorLangId == yicaopu"
         }
       ],
       "editor/context": [
         {
-          "when": "resourceExtname == .ycp",
-          "command": "yicaopu.toMidi",
+          "when": "editorLangId == yicaopu",
+          "command": "yicaopu.playSelection",
           "group": "navigation"
         }
       ],
       "explorer/context": [
         {
           "command": "yicaopu.toMidi",
+          "when": "resourceLangId == yicaopu",
+          "group": "navigation"
+        },
+        {
+          "command": "yicaopu.play",
           "when": "resourceLangId == yicaopu",
           "group": "navigation"
         }
